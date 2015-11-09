@@ -1,28 +1,32 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Title: Tasker (temp)
+Team Members: Natalia Layson, Ivette Flores, Akriti Singh
+Demo Link: 
 
-Things you may want to cover:
+Idea: An application where users can post their tasks for their friends to see. Thier friends can comment and send requests to work on tasks together. When a user completes a task, they get a cute picture.
 
-* Ruby version
+Models and Description:
+User
+has name, email, and many comments and questions
+certain Users are Administrators and have lectures
+Task
+has task and boolean for completion 
+Friendship
+Join table, has a_id and b_id
+Comment
+has text and belongs to a User
+Question
+has text, flag to say if it has been answered or not, and belongs to a User
 
-* System dependencies
+Features:
+Users can log in
+Users can create tasks
+Users can mark tasks as complete
+Users can comment on other tasks
+Users can submit requests to work together
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Division of Labor:
+Natalia: Task Model
+Ivette: Friendship Model
+Akriti:  User Model
