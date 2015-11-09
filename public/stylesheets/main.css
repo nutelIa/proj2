@@ -1,0 +1,126 @@
+body{
+	font-family: "Verdana", "Helvetica", "Times New Roman";
+	background-color: white;
+	padding: 20px;
+}
+
+.wrapper {
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+
+	-webkit-flex-flow: row wrap;
+	flex-flow: row wrap;
+	justify-content: space-around;
+	
+	background-color: #8AE6DB;
+	width: 1200px;
+	margin: auto;
+	text-align: center;
+}
+
+.header{
+	background-color: #4DE3D1;
+	padding: 20px 20px 0px 20px;
+	flex: 1 100%;
+	
+	text-align: center; 
+	color: #ffffff; 
+	background-repeat: no-repeat;
+	background-position: 52% top;
+	z-index: 1000;
+}
+
+.footer{
+	background-color: #4DE3D1;
+	padding: 20px;
+	flex: 1 100%;
+	font-size: 12px;
+}
+
+.main{
+	box-sizing: border-box;
+	-moz-flex: 3 1 70%;
+	-webkit-flex: 3 1 70%;
+	flex: 3 1 70%;
+	
+	background-color: #eee;
+}
+
+.feedwrapper {
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+
+	-webkit-flex-flow: row wrap;
+	flex-flow: row wrap;
+	justify-content: space-around;
+	
+	background-color: #eee;
+	width: 100%;
+	margin: auto;
+	text-align: center;
+}
+
+.taskbox{
+	box-sizing: border-box;
+	-moz-flex: 3 1 20%;
+	-webkit-flex: 3 1 20%;
+	flex: 3 1 20%;
+	
+	background-color: #FFE063;
+	padding: 20px 50px;
+	float: left;
+}
+
+.newsfeed{
+	box-sizing: border-box;
+	-moz-flex: 3 1 40%;
+	-webkit-flex: 3 1 40%;
+	flex: 3 1 40%;
+	
+	background-color: #9FFF63;
+	padding: 20px 50px;
+}
+
+.navbox{
+	box-sizing: border-box;
+	-moz-flex: 1 3 100%;
+	-webkit-flex: 1 3 100%;
+	flex: 1 3 100%;
+	
+	background-color: #910055;
+	padding: 10px;
+	font-family: 'Copperplate';
+	overflow: hidden;
+}
+
+.button, .selected{
+	display: inline-block;
+	background: -webkit-linear-gradient(#eee, #BFBFBF, #eee); /* For Safari 5.1 to 6.0 */
+	background: -o-linear-gradient(#eee, #BFBFBF, #eee); /* For Opera 11.1 to 12.0 */
+	background: -moz-linear-gradient(#eee, #BFBFBF, #eee); /* For Firefox 3.6 to 15 */
+	background: linear-gradient(#eee, #BFBFBF, #eee); /* Standard syntax */
+
+	margin: 0px 10px;
+	padding: 10px;
+	cursor: pointer;
+	border-radius: 50px;
+	opacity: 0.7;
+	width: auto;
+	float: left;
+	
+	-webkit-transition: opacity 1s ease;
+	-moz-transition: opacity 1s ease;
+	-o-transition: opacity 1s ease;
+	transition: all 0.5s ease;
+}
+
+.button:hover, .selected:hover{
+	opacity: 1.0;
+	letter-spacing: 5px;
+}
