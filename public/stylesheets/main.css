@@ -72,8 +72,8 @@ body{
 	-webkit-flex: 3 1 20%;
 	flex: 3 1 20%;
 	
-	background-color: #FFE063;
-	padding: 20px 50px;
+	background-color: #FFF7B8;
+	padding: 10px 10px;
 	float: left;
 }
 
@@ -83,7 +83,7 @@ body{
 	-webkit-flex: 3 1 40%;
 	flex: 3 1 40%;
 	
-	background-color: #9FFF63;
+	background-color: #B8C0FF;
 	padding: 20px 50px;
 }
 
@@ -94,33 +94,39 @@ body{
 	flex: 1 3 100%;
 	
 	background-color: #910055;
-	padding: 10px;
+	padding: 1px;
 	font-family: 'Copperplate';
 	overflow: hidden;
 }
 
 .button, .selected{
 	display: inline-block;
-	background: -webkit-linear-gradient(#eee, #BFBFBF, #eee); /* For Safari 5.1 to 6.0 */
-	background: -o-linear-gradient(#eee, #BFBFBF, #eee); /* For Opera 11.1 to 12.0 */
-	background: -moz-linear-gradient(#eee, #BFBFBF, #eee); /* For Firefox 3.6 to 15 */
-	background: linear-gradient(#eee, #BFBFBF, #eee); /* Standard syntax */
-
-	margin: 0px 10px;
+	margin: 0px 1px;
 	padding: 10px;
 	cursor: pointer;
-	border-radius: 50px;
-	opacity: 0.7;
-	width: auto;
 	float: left;
-	
-	-webkit-transition: opacity 1s ease;
-	-moz-transition: opacity 1s ease;
-	-o-transition: opacity 1s ease;
-	transition: all 0.5s ease;
+	color: white;
+	background: rgba(54, 25, 25, .1)
+
+	-webkit-transition: background .5s ease;
+  	-moz-transition: background .5s ease;
+  	-o-transition: background .5s ease;
+  	transition: background .5s ease;
 }
 
 .button:hover, .selected:hover{
-	opacity: 1.0;
-	letter-spacing: 5px;
+	background: rgba(54, 25, 25, .8)
+}
+
+.button.login{
+	float:right;
+}
+
+ul{
+    list-style: square inside;
+    text-align: left;
+}
+
+li{
+	padding: 10px;
 }
