@@ -1,0 +1,18 @@
+<h3>User</h3>
+<p>Name: <%= @user.name if @user.name %></p>
+<p>Email: <%= @user.email if @user.email %></p>
+<h4>Tasks</h4>
+    <ul>
+        <% if @user.tasks.empty? %>
+            <p>No Tasks!</p>
+        <% else %>
+	        <% @user.tasks.each do |task| %>
+	          <li><%= task.todo %>: completed? <%= task.finished %></li>
+	        <% end %>
+        <% end %>
+    </ul>
+
+<% if current_user == @user %>
+	 <%= link_to "New Task", tasks_new_path %>
+<% end %>
+

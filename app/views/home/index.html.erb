@@ -16,8 +16,14 @@
 	<div class="navbox">
 		<div class="button"> Home </div>
 		<div class="button"> My profile </div>
-		<div class="button"> Settings </div>
-		<div class="button login"> Log in/Sign up </div>
+		<div class="button"> <%= link_to 'Edit Your User', edit_user_registration_path %></div>
+		<% if user_signed_in? %>
+			<div class="button login">
+  			<%= link_to 'Log Out', destroy_user_session_path, :method=>'delete' %>
+			<% else %>
+  				<%= link_to 'Log In', user_session_path %>
+  				<%= link_to 'Sign Up', new_user_registration_path %>
+			<% end %> </div>
 	</div>
 
 	<div class="main">
@@ -31,7 +37,9 @@
 				 	<li> here you will see a list of all the tasks you're currently working on </li>
 				 	<li> here you will see a list of all the tasks you're currently working on </li>
 				 	<li> here you will see a list of all the tasks you're currently working on </li>
-				 	<div class="button"> Create Task </div>
+				 	<div class="button"><% if user_signed_in? %>
+  			<%= link_to 'Create Task', tasks_new_path%>
+			<% end %></div>
 				 </ul>
 			</div>
 			<div class="newsfeed">
