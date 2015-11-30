@@ -7,7 +7,7 @@
             <p>No Tasks!</p>
         <% else %>
 	        <% @user.tasks.each do |task| %>
-	          <li><%= task.todo %>: completed? <%= task.finished %></li>
+	          <li>Task:<%= task.todo %> completed? <%= task.finished %></li>
 	        <% end %>
         <% end %>
     </ul>

@@ -11,11 +11,12 @@
 <div class="wrapper">
 	<header class="header">
 		<h1> Welcome to Tasker! </h1>
+		<h3> The Social To-Do List </h3>
 	</header>
 
 	<div class="navbox">
 		<div class="button"> Home </div>
-		<div class="button"> My profile </div>
+		<div class="button"><%= link_to 'My Profile', current_user %></div>
 		<div class="button"> <%= link_to 'Edit Your User', edit_user_registration_path %></div>
 		<% if user_signed_in? %>
 			<div class="button login">
@@ -29,17 +30,20 @@
 	<div class="main">
 		<div class="feedwrapper">
 			<div class="taskbox">
+				<% if user_signed_in? %>
 				<h3> My To-Do List </h3>
 				<hr>
-				 <ul> 
-				 	<li> here you will see a list of all the tasks you're currently working on </li>
-				 	<li> here you will see a list of all the tasks you're currently working on </li>
-				 	<li> here you will see a list of all the tasks you're currently working on </li>
-				 	<li> here you will see a list of all the tasks you're currently working on </li>
-				 	<li> here you will see a list of all the tasks you're currently working on </li>
-				 	<div class="button"><% if user_signed_in? %>
-  			<%= link_to 'Create Task', tasks_new_path%>
-			<% end %></div>
+				     <ul>
+        				<% if current_user.tasks.empty? %>
+            				<p>No Tasks!</p>
+        				<% else %>
+	        				<% current_user.tasks.each do |task| %>
+	          				<li>Task:<%= task.todo %> completed? <%= task.finished %></li>
+	        				<% end %>
+        				<% end %>
+				 	<div class="button"> <%= link_to 'Create Task', tasks_new_path%></div>
+				 <% else %> <p>Log In to display your tasks!</p> <hr>
+			<% end %>
 				 </ul>
 			</div>
 			<div class="newsfeed">
