@@ -15,7 +15,7 @@
 	</header>
 
 	<div class="navbox">
-		<div class="button"> Home </div>
+		<div class="button"> <%= link_to 'Home', root_path %></div>
 		<div class="button"><%= link_to 'My Profile', current_user %></div>
 		<div class="button"> <%= link_to 'Edit Your User', edit_user_registration_path %></div>
 		<% if user_signed_in? %>

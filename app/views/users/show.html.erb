@@ -1,3 +1,15 @@
+<div class="navbox">
+		<div class="button"> <%= link_to 'Home', root_path %></div>
+		<div class="button"><%= link_to 'My Profile', current_user %></div>
+		<div class="button"> <%= link_to 'Edit Your User', edit_user_registration_path %></div>
+		<% if user_signed_in? %>
+			<div class="button login">
+  			<%= link_to 'Log Out', destroy_user_session_path, :method=>'delete' %>
+			<% else %>
+  				<%= link_to 'Log In', user_session_path %>
+  				<%= link_to 'Sign Up', new_user_registration_path %>
+			<% end %> </div>
+	</div>
 <h3>User</h3>
 <p>Name: <%= @user.name if @user.name %></p>
 <p>Email: <%= @user.email if @user.email %></p>
