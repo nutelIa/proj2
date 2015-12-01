@@ -19,7 +19,7 @@ class TasksController < ApplicationController
 	def update
 		@task = Task.find(params[:id])
 		@task.update_column(:finished, true)
-		redirect_to current_user
+		redirect_to home_photo_path
 	end
 
 	def task_params
