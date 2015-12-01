@@ -18,9 +18,14 @@
         <% if @user.tasks.empty? %>
             <p>No Tasks!</p>
         <% else %>
-	        <% @user.tasks.each do |task| %>
-	          <li>Task:<%= task.todo %> completed? <%= task.finished %></li>
-	        <% end %>
+            <% @user.tasks.each do |task| %>
+            	<% if not task.finished %>
+	          	<%= simple_form_for task do |f| %>
+					<li> <%= task.todo %>
+					<%= f.submit 'Completed This Task' %> </li>
+					<% end %>
+				<% end %>
+            <% end %>
         <% end %>
     </ul>
 
@@ -28,3 +33,15 @@
 	 <%= link_to "New Task", tasks_new_path %>
 <% end %>
 
+<h4>Finished Tasks</h4>
+    <ul>
+        <% if @user.tasks.empty? %>
+            <p>No Tasks!</p>
+        <% else %>
+	        <% @user.tasks.each do |task| %>
+	        <% if task.finished %>
+	        	<li> <%= task.todo %> </li>
+	        	<% end %>
+	        <% end %>
+        <% end %>
+    </ul>

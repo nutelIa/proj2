@@ -16,6 +16,12 @@ class TasksController < ApplicationController
 		end
 	end
 
+	def update
+		@task = Task.find(params[:id])
+		@task.update_column(:finished, true)
+		redirect_to current_user
+	end
+
 	def task_params
 		params.require(:task).permit(:todo)
 	end

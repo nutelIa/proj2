@@ -37,9 +37,14 @@
         				<% if current_user.tasks.empty? %>
             				<p>No Tasks!</p>
         				<% else %>
-	        				<% current_user.tasks.each do |task| %>
-	          				<li>Task:<%= task.todo %> completed? <%= task.finished %></li>
-	        				<% end %>
+        					<% current_user.tasks.each do |task| %>
+	        				<% if not task.finished %>
+					          	<%= simple_form_for task do |f| %>
+									<li> <%= task.todo %>
+									<%= f.submit 'Completed This Task' %> </li>
+									<% end %>
+								<% end %>
+								<% end %>
         				<% end %>
 				 	<div class="button"> <%= link_to 'Create Task', tasks_new_path%></div>
 				 <% else %> <p>Log In to display your tasks!</p> <hr>

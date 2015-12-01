@@ -1,3 +1,15 @@
+<div class="navbox">
+    <div class="button"> <%= link_to 'Home', root_path %></div>
+    <div class="button"><%= link_to 'My Profile', current_user %></div>
+    <div class="button"> <%= link_to 'Edit Your User', edit_user_registration_path %></div>
+    <% if user_signed_in? %>
+      <div class="button login">
+        <%= link_to 'Log Out', destroy_user_session_path, :method=>'delete' %>
+      <% else %>
+          <%= link_to 'Log In', user_session_path %>
+          <%= link_to 'Sign Up', new_user_registration_path %>
+      <% end %> 
+</div>
 <div class="authform">
   <h3>Edit <%= resource_name.to_s.humanize %></h3>
   <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, :role => 'form'}) do |f| %>
