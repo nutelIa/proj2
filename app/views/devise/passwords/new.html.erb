@@ -1,12 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>
+    Tasker
+  </title>
+  <link rel="stylesheet" type="text/css" href="style.css" media="screen">
+</head>
+
+<body>
+<div class="wrapper">
+  <header class="header">
+    <h1> Welcome to Tasker! </h1>
+    <h3> The Social To-Do List </h3>
+  </header>
+
+  <div class="navbox">
+    <div class="button"> <%= link_to 'Home', root_path %></div>
+    <% if user_signed_in? %>
+      <div class="button"><%= link_to 'My Profile', current_user %></div>
+      <div class="button"> <%= link_to 'Edit Your User', edit_user_registration_path %></div>
+
+      <div class="rightbutton"><%= link_to 'Log Out', destroy_user_session_path, :method=>'delete' %></div>
+    <% else %>
+        <div class="rightbutton"><%= link_to 'Log In', user_session_path %></div>
+        <div class="rightbutton"><%= link_to 'Sign Up', new_user_registration_path %></div>
+    <% end %> 
+  </div>
+
+  <div class="main">
+
+
 <div class="authform">
   <%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post, :role => 'form'}) do |f| %>
     <h3>Forgot your password?</h3>
     <p>We'll send password reset instructions.</p>
-    <%= devise_error_messages! %>
+    <div class="errormsg"><%= devise_error_messages! %></div>
     <div class="form-group">
       <%= f.label :email %>
       <%= f.email_field :email, :autofocus => true, class: 'form-control' %>
     </div>
-     <%= f.submit 'Reset Password', :class => 'button right' %>
+     <%= f.submit 'Reset Password', :class => 'clicky' %>
   <% end %>
 </div>
+</div>
+<footer class="footer">
+    Copyrighted by us in 2015
+  </footer>
+</div>
+</body>
+</html>

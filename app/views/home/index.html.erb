@@ -16,40 +16,41 @@
 
 	<div class="navbox">
 		<div class="button"> <%= link_to 'Home', root_path %></div>
-		<div class="button"><%= link_to 'My Profile', current_user %></div>
-		<div class="button"> <%= link_to 'Edit Your User', edit_user_registration_path %></div>
 		<% if user_signed_in? %>
-			<div class="button login">
-  			<%= link_to 'Log Out', destroy_user_session_path, :method=>'delete' %>
-			<% else %>
-  				<%= link_to 'Log In', user_session_path %>
-  				<%= link_to 'Sign Up', new_user_registration_path %>
-			<% end %> </div>
+			<div class="button"><%= link_to 'My Profile', current_user %></div>
+			<div class="button"> <%= link_to 'Edit Your User', edit_user_registration_path %></div>
+
+			<div class="rightbutton"><%= link_to 'Log Out', destroy_user_session_path, :method=>'delete' %></div>
+		<% else %>
+  			<div class="rightbutton"><%= link_to 'Log In', user_session_path %></div>
+  			<div class="rightbutton"><%= link_to 'Sign Up', new_user_registration_path %></div>
+		<% end %> 
 	</div>
 
 	<div class="main">
 		<div class="feedwrapper">
 			<div class="taskbox">
 				<% if user_signed_in? %>
-				<h3> My To-Do List </h3>
-				<hr>
-				     <ul>
-        				<% if current_user.tasks.empty? %>
-            				<p>No Tasks!</p>
-        				<% else %>
-        					<% current_user.tasks.each do |task| %>
-	        				<% if not task.finished %>
-					          	<%= simple_form_for task do |f| %>
-									<li> <%= task.todo %>
-									<%= f.submit 'Mark as Completed' %> </li>
-									<% end %>
-								<% end %>
-								<% end %>
-        				<% end %>
-				 	<div class="button"> <%= link_to 'Create Task', tasks_new_path%></div>
-				 <% else %> <p>Log In to display your tasks!</p> <hr>
+					<div class="pagetitle"> My To-Do List </div>
+					<hr>
+        			<% if current_user.tasks.empty? %>
+            			<p>No Tasks!</p>
+        			<% else %>
+        				<% current_user.tasks.each do |task| %>
+	        			<% if not task.finished %>
+					          <%= simple_form_for task do |f| %>
+					          	<ul>
+								<li> <%= task.todo %>
+								<%= f.submit 'Mark as Completed', :class => 'clicky'%> </li>
+								</ul>
+							<% end %>
+						<% end %>
+						<% end %>
+        			<% end %>
+				 	<div class="clicky"> <%= link_to 'Create Task', tasks_new_path%></div>
+				 <% else %> 
+				 	<div class = "signinmsg">Log in to display your tasks!</div>
 			<% end %>
-				 </ul>
 			</div>
 			<div class="newsfeed">
 				<p> 
