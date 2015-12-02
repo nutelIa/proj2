@@ -21,9 +21,13 @@
         <% else %>
             <% @user.tasks.each do |task| %>
             	<% if not task.finished %>
-	          	<%= simple_form_for task do |f| %>
-					<li> <%= task.todo %>
-					<%= f.submit 'Mark as Completed' %> </li>
+	            	<% if @user.id == current_user %>
+			          	<%= simple_form_for task do |f| %>
+							<li> <%= task.todo %>
+							<%=f.submit 'Mark as Completed' %> </li>
+							<% end %>
+					<% else %>
+						<li> <%= task.todo %>
 					<% end %>
 				<% end %>
             <% end %>
@@ -41,7 +45,11 @@
         <% else %>
 	        <% @user.tasks.each do |task| %>
 	        <% if task.finished %>
-	        	<li> <%= task.todo %> <%= button_to "Delete", delete_path(id: task), :method => :patch %> </li>
+	        	<% if @user.id == current_user %>
+	        		<li> <%= task.todo %> <%= button_to "Delete", delete_path(id: task), :method => :patch %> </li>
+	        	<% else %>
+	        		<li> <%= task.todo %> </li>
+	        		<% end %>
 	        	<% end %>
 	        <% end %>
         <% end %>
