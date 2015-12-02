@@ -1,47 +1,75 @@
-<div class="navbox">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>
+		Tasker
+	</title>
+	<link rel="stylesheet" type="text/css" href="style.css" media="screen">
+</head>
+
+<body>
+<div class="wrapper">
+	<header class="header">
+		<h1> Welcome to Tasker! </h1>
+		<h3> The Social To-Do List </h3>
+	</header>
+	<div class="navbox">
 		<div class="button"> <%= link_to 'Home', root_path %></div>
 		<div class="button"><%= link_to 'My Profile', current_user %></div>
 		<div class="button"> <%= link_to 'Edit Your User', edit_user_registration_path %></div>
 		<% if user_signed_in? %>
-			<div class="button login">
+			<div class="rightbutton">
   			<%= link_to 'Log Out', destroy_user_session_path, :method=>'delete' %>
 			<% else %>
   				<%= link_to 'Log In', user_session_path %>
   				<%= link_to 'Sign Up', new_user_registration_path %>
 			<% end %> </div>
 	</div>
-<h3>User</h3>
+	<div class="main">
+<div class="pagetitle">User</div>
 <p>Name: <%= @user.name if @user.name %></p>
 <p>Email: <%= @user.email if @user.email %></p>
-<h4>Tasks</h4>
-    <ul>
+<div class="pagetitle">Tasks</div>
         <% if @user.tasks.empty? %>
             <p>No Tasks!</p>
         <% else %>
+        	<div class="tasklist">
+        	<ul>
             <% @user.tasks.each do |task| %>
             	<% if not task.finished %>
 	          	<%= simple_form_for task do |f| %>
 					<li> <%= task.todo %>
 					<%= f.submit 'Mark as Completed' %> </li>
 					<% end %>
+				</ul>
+			</div>
 				<% end %>
             <% end %>
         <% end %>
     </ul>
 
 <% if current_user == @user %>
-	 <%= link_to "New Task", tasks_new_path %>
+	 <div class="clicky"><%= link_to "New Task", tasks_new_path %></div>
 <% end %>
 
-<h4>Finished Tasks</h4>
-    <ul>
-        <% if @user.tasks.empty? %>
-            <p>No Tasks!</p>
-        <% else %>
+<div class="pagetitle">Finished Tasks</div>
+	<% if @user.tasks.empty? %>
+        <p>No Tasks!</p>
+	<% else %>
+        <div class="tasklist">
+        	<ul>
 	        <% @user.tasks.each do |task| %>
 	        <% if task.finished %>
 	        	<li> <%= task.todo %> </li>
-	        	<% end %>
 	        <% end %>
-        <% end %>
-    </ul>
+	    	</ul>
+	    </div>
+	<% end %>
+    <% end %>
+   </div>
+<footer class="footer">
+    Copyrighted by us in 2015
+  </footer>
+</div>
+</body>
+</html>

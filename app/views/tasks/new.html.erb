@@ -1,16 +1,42 @@
-<div class="navbox">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>
+		Tasker
+	</title>
+	<link rel="stylesheet" type="text/css" href="style.css" media="screen">
+</head>
+
+<body>
+<div class="wrapper">
+	<header class="header">
+		<h1> Welcome to Tasker! </h1>
+		<h3> The Social To-Do List </h3>
+	</header>
+
+	<div class="navbox">
 		<div class="button"> <%= link_to 'Home', root_path %></div>
+		<% if user_signed_in? %>
 		<div class="button"><%= link_to 'My Profile', current_user %></div>
 		<div class="button"> <%= link_to 'Edit Your User', edit_user_registration_path %></div>
-		<% if user_signed_in? %>
-			<div class="button login">
-  			<%= link_to 'Log Out', destroy_user_session_path, :method=>'delete' %>
-			<% else %>
-  				<%= link_to 'Log In', user_session_path %>
-  				<%= link_to 'Sign Up', new_user_registration_path %>
-			<% end %> </div>
-<h1>Create New Task</h1>
+			<div class="rightbutton"><%= link_to 'Log Out', destroy_user_session_path, :method=>'delete' %></div>
+		<% else %>
+  			<div class="rightbutton"><%= link_to 'Log In', user_session_path %></div>
+  			<div class="rightbutton"><%= link_to 'Sign Up', new_user_registration_path %></div>
+		<% end %> 
+	</div>
+
+	<div class="main">
+<div class="pagetitle">Create New Task</div>
 <%= simple_form_for @task do |f| %>
   <%= f.input :todo %>
-  <%= f.submit %>
+  <%= f.submit 'Create Task', :class => 'clicky'%>
 <% end %>
+
+	</div>
+	<footer class="footer">
+    Copyrighted by us in 2015
+  </footer>
+</div>
+</body>
+</html>
