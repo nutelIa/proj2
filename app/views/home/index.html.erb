@@ -18,6 +18,7 @@
 		<div class="button"> <%= link_to 'Home', root_path %></div>
 		<div class="button"><%= link_to 'My Profile', current_user %></div>
 		<div class="button"> <%= link_to 'Edit Your User', edit_user_registration_path %></div>
+		<div class="button"><%= link_to 'All Users:', users_path %> <%= User.count %> registered </div>
 		<% if user_signed_in? %>
 			<div class="button login">
   			<%= link_to 'Log Out', destroy_user_session_path, :method=>'delete' %>

@@ -22,6 +22,12 @@ class TasksController < ApplicationController
 		redirect_to home_photo_path
 	end
 
+	def delete
+		@task = Task.find(params[:id])
+		@task.destroy
+		redirect_to current_user
+	end
+
 	def task_params
 		params.require(:task).permit(:todo)
 	end

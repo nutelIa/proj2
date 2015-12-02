@@ -1,0 +1,31 @@
+	<div class="navbox">
+		<div class="button"> <%= link_to 'Home', root_path %></div>
+		<div class="button"><%= link_to 'My Profile', current_user %></div>
+		<div class="button"> <%= link_to 'Edit Your User', edit_user_registration_path %></div>
+		<div class="button"><%= link_to 'All Users:', users_path %> <%= User.count %> registered </div>
+		<% if user_signed_in? %>
+			<div class="button login">
+  			<%= link_to 'Log Out', destroy_user_session_path, :method=>'delete' %>
+			<% else %>
+  				<%= link_to 'Log In', user_session_path %>
+  				<%= link_to 'Sign Up', new_user_registration_path %>
+			<% end %> </div>
+	</div>
+
+<div class="container">
+  <div class="row">
+    <h3>All Users</h3>
+    <div class="column">
+      <table class="table">
+        <tbody>
+          <% @users.each do |user| %>
+            <tr>
+              <td><%= link_to user.name, user %></td>
+			  <td><%= link_to user.email, user %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

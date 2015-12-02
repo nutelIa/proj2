@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root to: 'home#index'
   devise_for :users, :controllers => { :registrations => "users/registrations" }
   resources :users
+  patch 'delete', to: 'tasks', as: :delete
   get 'tasks/new', to: 'tasks#new'
   resources :tasks
   get 'home/photo', to: 'home#photo'
