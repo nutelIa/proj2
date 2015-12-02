@@ -8,11 +8,11 @@
 
 
 # Make Users
-%w(Elmo Dirks Santa).each do |name|
-  User.create name: name, email: name+"@email.com", password: 'password'
+%w(Oski Bruin Aggie Anteater Bobcat Highlander Triton Gaucho BananaSlug).each do |name|
+  User.create name: name, email: name+"@UC.edu", password: 'password'
 end
 
 # Make Tasks
-%w(Study Sleep Eat).each do |name|
-  Task.create todo: name, user_id: rand(1..3), finished: false
+%w(Study Sleep Eat MakeFriends Shower Cry).each do |name|
+  Task.create todo: name, user_id: rand(1..9), finished: false
 end
