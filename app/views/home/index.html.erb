@@ -53,7 +53,18 @@
 			</div>
 			<div class="newsfeed">
 				<p> 
-				This is where you will see a newsfeed of all the tasks that your friends are currently working on! get excited bc its gonna be super cool B) 
+				<div class="tasks">
+  					<div class="container">
+	    				<% @task = Task.all %>
+	  					<% @task.each do |task| %> 
+							<div class="task"> 
+								<p class="creator"><%= User.find(task.user_id).name %></p>
+			  					<p class="content"><%= task.todo %></p> 
+			  					<p class="time"><%= task.created_at %></p> 
+							</div> 
+						<% end %>
+  					</div>
+				</div>
 				</p>
 			</div>
 		</div>

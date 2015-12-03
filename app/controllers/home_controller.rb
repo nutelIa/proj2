@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
 	def photo
-		n = rand(1..10)
+		n = rand(1..13)
 		if n == 1
 			@photo = "http://www.yesvegetarian.com/wp-content/uploads/2014/11/Funny-cute-dog.jpg"
 		elsif n == 2
@@ -21,6 +21,16 @@ class HomeController < ApplicationController
 			@photo = "http://www.gifbin.com/bin/072011/1311246801_cute_baby_sloth_yawns.gif"
 		elsif n == 10
 			@photo = "http://www.gifbin.com/bin/102013/1383326929_cute_curious_seal_pup.gif"
+		elsif n == 11
+			@photo = "https://pbs.twimg.com/profile_images/378800000674268962/06ce58cab26c3a0daf80cf57e5acb29b_400x400.jpeg"
+		elsif n == 12
+			@photo = "http://stylonica.com/wp-content/uploads/2014/03/Cute-Cats-cats-33440930-1280-800.jpg"
+		elsif n == 13
+			@photo = "http://glommable.com/wp-content/uploads/2014/04/glasses-corgi-600-x-600.jpg"
+		elsif n == 14
+			@photo = "https://45.media.tumblr.com/631d2a918f0b96c0e193e2c594943580/tumblr_mlwwc0Zpde1s8fdv8o1_500.gif"
+		elsif n == 15
+			@photo = "https://49.media.tumblr.com/tumblr_mb11qk77jk1rheqhwo1_500.gif"
 		end
 	end
 end
