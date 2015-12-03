@@ -52,20 +52,19 @@
 			<% end %>
 			</div>
 			<div class="newsfeed">
-				<p> 
-				<div class="tasks">
-  					<div class="container">
-	    				<% @task = Task.all %>
+
+	    				<% @task = Task.all.reverse_order %>
 	  					<% @task.each do |task| %> 
 							<div class="task"> 
-								<p class="creator"><%= User.find(task.user_id).name %></p>
-			  					<p class="content"><%= task.todo %></p> 
-			  					<p class="time"><%= task.created_at %></p> 
+
+								<div class="name">
+									<%= User.find(task.user_id).name %> 
+
+									is working on: </div> <div class="time"><%= task.created_at %></div> 
+			  					<div class="con"><%= task.todo %></div> <br>
+			  					
 							</div> 
 						<% end %>
-  					</div>
-				</div>
-				</p>
 			</div>
 		</div>
 		<% else %>

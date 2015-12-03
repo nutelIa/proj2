@@ -70,7 +70,7 @@ body{
 	box-sizing: border-box;
 	-moz-flex: 3 1 20%;
 	-webkit-flex: 3 1 20%;
-	flex: 3 1 30%;
+	flex: 3 1 20%;
 	
 	background-color: #94dceb;
 	padding: 10px 10px;
@@ -81,7 +81,7 @@ body{
 	box-sizing: border-box;
 	-moz-flex: 3 1 40%;
 	-webkit-flex: 3 1 40%;
-	flex: 3 1 40%;
+	flex: 3 1 60%;
 	
 	background-color: #eba394;
 	padding: 20px 50px;
@@ -161,7 +161,7 @@ li{
 	font-size: 20px;
 	width: 275px;
 	text-align: center;
-	margin: 10px 0px 10px 0px;
+	margin: 10px auto 10px auto;
 }
 
 .clicky:hover{
@@ -222,13 +222,38 @@ li{
 	text-align: center;
 }
 
+.task{
+	background: none;
+	border-bottom: 1px solid #CF2400;
+	padding: 20px;
 
+	-webkit-transition: background .5s ease;
+  	-moz-transition: background .5s ease;
+  	-o-transition: background .5s ease;
+  	transition: background .5s ease;
+}
 
+.task:hover{
+	background: rgba(235, 141, 122, .8);
 
+}
 
+.time{
+	font-size: 15px;
+	float: right;
+	color: #CF2400;
+}
 
+.name{
+	font-size: 17px;
+	float:left;
+	font-weight: 900;
+}
 
-
+.con{
+	text-align: left;
+	padding: 30px;
+}
 
 
 
