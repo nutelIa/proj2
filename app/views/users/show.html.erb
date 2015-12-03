@@ -49,7 +49,7 @@
 	            <p>No Tasks!</p>
 	        <% else %>
 	            <% @user.tasks.each do |task| %>
-	            	<% if task.priority %>
+	            	<% if task.priority and not task.finished%>
 		            	<% if @user == current_user %> 
 		            		<div>
 		            			<div style="display:inline-block;margin-right:10px"> 
@@ -133,8 +133,9 @@
 	<div class= "pagetitle">Following</div>
 	<% @user.friends.each do |friend| %>
 	<li> <%= link_to friend.name, friend %> 
-		<div style="display:inline-block;"> <%= button_to "Unfollow", destroy_path(id: friend), :class => 'smallbutton', :method => :patch %> 
-		</div>
+		<% if current_user == @user %>
+			<div style="display:inline-block;"> <%= button_to "Unfollow", destroy_path(id: friend), :class => 'smallbutton', :method => :patch %> </div>
+		<% end %>
 	</li>
 	<% end %>
 	<% else %> 
