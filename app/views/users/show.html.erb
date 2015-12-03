@@ -38,7 +38,10 @@
 			<p> <%=button_to "Follow", friend_path(:id => @user.id), :method => :post %>
 		<% end %>
 	<% end %>
-	<h4>Tasks</h4>
+
+	<div class="showwrapper">
+	<div class="mytasks">
+	<div class= "pagetitle">Tasks</div>
 	    <ul>
 	        <% if @user.tasks.empty? %>
 	            <p>No Tasks!</p>
@@ -54,7 +57,7 @@
 		                            <% end %>
 		                        </div>
 								<div style="display:inline-block;"> 
-			        				<%= button_to "Give Up", delete_path(id: task), :method => :patch %> 
+			        				<%= button_to "Give Up", delete_path(id: task), :method => :patch %>
 			        			</div>
 			        		</div>
 						<% else %>
@@ -66,10 +69,13 @@
 	    </ul>
 
 	<% if current_user == @user %>
-		 <%= link_to "New Task", tasks_new_path %>
+		 <div class="clicky"> <%= link_to "New Task", tasks_new_path %> </div>
 	<% end %>
+</div>
 
-	<h4>Finished Tasks</h4>
+<div class="finishedtasks">
+
+	<div class= "pagetitle">Finished Tasks</div>
 	    <ul>
 	        <% if @user.tasks.empty? %>
 	            <p>No Tasks!</p>
@@ -89,8 +95,11 @@
 		        <% end %>
 	        <% end %>
 	    </ul>
+	</div>
 
-	<h4>Following</h4>
+	<div class="following">
+
+	<div class= "pagetitle">Following</div>
 	<% @user.friends.each do |friend| %>
 	<li> <%= link_to friend.name, friend %><div style="display:inline-block;"> <%= button_to "Unfollow", destroy_path(id: friend), :method => :patch %> 
 		        			</div></li>
@@ -98,6 +107,8 @@
 	<% else %> 
 		<p> You must be logged in to view user </p>
 	<% end %>
+</div>
+</div>
 </div>
 	<footer class="footer">
 		Copyrighted by us in 2015
