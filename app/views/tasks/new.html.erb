@@ -27,11 +27,13 @@
 	</div>
 
 	<div class="main">
+<div class="signinbubble">
 <div class="pagetitle">Create New Task</div>
 <%= simple_form_for @task do |f| %>
-  <%= f.input :todo %>
-  <%= f.submit 'Create Task', :class => 'clicky'%>
+  <%= f.input :todo, :input_html => { :class => 'field', :id => "todo"}, placeholder: 'Task', :label => "" %>
+  <%= f.submit 'Create new task', :class => 'clicky'%>
 <% end %>
+</div>
 
 	</div>
 	<footer class="footer">
