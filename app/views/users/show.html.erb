@@ -19,8 +19,8 @@
 		
 		<% if user_signed_in? %>
 		<div class="button"><%= link_to 'My Profile', current_user %></div>
-		<div class="button"> <%= link_to 'Edit Your User', edit_user_registration_path %></div>
 			<div class="rightbutton"><%= link_to 'Log Out', destroy_user_session_path, :method=>'delete' %></div>
+			<div class="rightbutton"><%= link_to 'Welcome,', edit_user_registration_path %> <%= current_user.name %> </div>
 		<% else %>
   			<div class="rightbutton"><%= link_to 'Log In', user_session_path %></div>
   			<div class="rightbutton"><%= link_to 'Sign Up', new_user_registration_path %></div>
@@ -31,13 +31,15 @@
 
 <div class="userbox">
 <% if user_signed_in? %>
-	<h1><%= @user.name if @user.name %></h1>
-	<h3><%= @user.email if @user.email %></h3>
+	<div>
+	<h1><%= @user.name if @user.name %></h1> <h3><%= @user.email if @user.email %></h3>
 	<% if user_signed_in? %>
 		<% if @user != current_user && @not_following %>
 			<p> <%=button_to "Follow", friend_path(:id => @user.id), :class => 'smallbutton', :method => :post %>
 		<% end %>
+		</div>
 	<% end %>
+
 </div>
 	<div class="showwrapper">
 	<div class="mytasks">
