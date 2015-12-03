@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get 'tasks/new', to: 'tasks#new'
   resources :tasks
   get 'home/photo', to: 'home#photo'
+  patch 'prioritize', to: 'tasks', as: :prioritize
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
