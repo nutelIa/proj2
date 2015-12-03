@@ -55,15 +55,20 @@
 
 	    				<% @task = Task.all.reverse_order %>
 	  					<% @task.each do |task| %> 
-							<div class="task"> 
-
-								<div class="name">
-									<%= User.find(task.user_id).name %> 
-
-									is working on: </div> <div class="time"><%= task.created_at %></div> 
-			  					<div class="con"><%= task.todo %></div> <br>
-			  					
-							</div> 
+	  						<% current_user.friends.each do |friend| %>
+	  							<% if friend == User.find(task.user_id) %>
+									<div class="task"> 
+										<div class="name">
+											<%= link_to User.find(task.user_id).name, User.find(task.user_id) %>
+											<% if task.finished == false %>
+												is working on: </div> <div class="time"><%= task.created_at %></div> 
+											<% else %>
+												finished working on: </div> <div class="time"><%= task.created_at %></div> 
+											<% end %>
+					  					<div class="con"><%= task.todo %></div> <br>
+									</div> 
+								<% end %>
+							<% end %>
 						<% end %>
 			</div>
 		</div>

@@ -1,4 +1,5 @@
 class HomeController < ApplicationController
+
 	def photo
 		n = rand(1..13)
 		if n == 1
