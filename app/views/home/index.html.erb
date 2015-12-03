@@ -36,11 +36,12 @@
         			<% else %>
         				<% current_user.tasks.each do |task| %>
 	        			<% if not task.finished %>
+	        			<div class="tasklist">
 					          <%= simple_form_for task do |f| %>
-					          	<ul>
-								<li> <%= task.todo %>
-								<%= f.submit 'Mark as Completed', :class => 'clicky'%> </li>
-								</ul>
+					      
+									<%= f.submit '✓', :class => 'check'%> 
+									<%= task.todo %>
+							</div>
 							<% end %>
 						<% end %>
 						<% end %>
