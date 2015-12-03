@@ -29,26 +29,23 @@
 
 <div class="main">
 <div class="authform">
+  <div class="signinbubble">
   <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :role => 'form'}) do |f| %>
     <div class = "pagetitle"> Sign up </div>
     <% if devise_error_messages! %>
-      <div class="errormsg"><%= devise_error_messages! %></div>
+      <%= devise_error_messages! %>
     <% end %>
     <div class="form-group">
-      <%= f.label :name %>
-      <%= f.text_field :name, :autofocus => true, class: 'form-control' %>
+      <%= f.text_field :name, :autofocus => true, class: 'field', placeholder: 'Name' %>
     </div>
     <div class="form-group">
-      <%= f.label :email %>
-      <%= f.email_field :email, class: 'form-control' %>
+      <%= f.email_field :email, class: 'field', placeholder: 'Email' %>
     </div>
     <div class="form-group">
-      <%= f.label :password %>
-      <%= f.password_field :password, class: 'form-control' %>
+      <%= f.password_field :password, class: 'field', placeholder: 'Password' %>
     </div>
     <div class="form-group">
-      <%= f.label :password_confirmation %>
-      <%= f.password_field :password_confirmation, class: 'form-control' %>
+      <%= f.password_field :password_confirmation, class: 'field', placeholder: 'Password confirmation' %>
     </div>
      <%= f.submit 'Sign up', :class => 'clicky' %>
   <% end %>
@@ -57,6 +54,7 @@
 <footer class="footer">
     Copyrighted by us in 2015
   </footer>
+</div>
 </div>
 </body>
 </html>
