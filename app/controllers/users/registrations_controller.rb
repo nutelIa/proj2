@@ -5,5 +5,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up).push(:name)
+    devise_parameter_sanitizer.for(:account_update).push(:name)
   end
 end
