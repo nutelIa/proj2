@@ -24,13 +24,11 @@ class HomeController < ApplicationController
 		elsif n == 11
 			@photo = "https://pbs.twimg.com/profile_images/378800000674268962/06ce58cab26c3a0daf80cf57e5acb29b_400x400.jpeg"
 		elsif n == 12
-			@photo = "http://stylonica.com/wp-content/uploads/2014/03/Cute-Cats-cats-33440930-1280-800.jpg"
+			@photo = "https://45.media.tumblr.com/631d2a918f0b96c0e193e2c594943580/tumblr_mlwwc0Zpde1s8fdv8o1_500.gif"
 		elsif n == 13
 			@photo = "http://glommable.com/wp-content/uploads/2014/04/glasses-corgi-600-x-600.jpg"
 		elsif n == 14
-			@photo = "https://45.media.tumblr.com/631d2a918f0b96c0e193e2c594943580/tumblr_mlwwc0Zpde1s8fdv8o1_500.gif"
-		elsif n == 15
-			@photo = "https://49.media.tumblr.com/tumblr_mb11qk77jk1rheqhwo1_500.gif"
+			@photo = "http://stylonica.com/wp-content/uploads/2014/03/Cute-Cats-cats-33440930-1280-800.jpg"
 		end
 	end
 end
