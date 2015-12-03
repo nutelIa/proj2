@@ -8,6 +8,7 @@ class TasksController < ApplicationController
 		if @task.save
 			@task.update_column(:user_id, current_user)
 			@task.update_column(:finished, false)
+			@task.update_column(:priority. false)
 			redirect_to current_user
 		else
 			render 'new'
@@ -23,6 +24,12 @@ class TasksController < ApplicationController
 	def delete
 		@task = Task.find(params[:id])
 		@task.destroy
+		redirect_to current_user
+	end
+
+	def prioritize
+		@task = Task.find(params[:id])
+		@task.update_column(:priority, true)
 		redirect_to current_user
 	end
 
