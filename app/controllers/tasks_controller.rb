@@ -11,8 +11,6 @@ class TasksController < ApplicationController
 			redirect_to current_user
 		else
 			render 'new'
-		# 	flash[:error] = @user.errors.full_messages.to_sentence	
-		# 	render 'new'
 		end
 	end
 

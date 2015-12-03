@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => { :registrations => "users/registrations" }
   resources :users
   patch 'delete', to: 'tasks', as: :delete
+   patch 'destroy', to: 'friendships', as: :destroy
   get 'tasks/new', to: 'tasks#new'
   resources :tasks
   get 'home/photo', to: 'home#photo'

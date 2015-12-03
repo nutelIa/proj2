@@ -11,4 +11,10 @@ class FriendshipsController < ApplicationController
         redirect_to (:back)
       end
     end
+
+  def destroy
+    @friendship = Friendship.find(params[:id])
+    @friendship.delete
+    redirect_to current_user
+  end
 end
