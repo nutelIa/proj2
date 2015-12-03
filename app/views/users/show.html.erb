@@ -15,7 +15,7 @@
 <p>Name: <%= @user.name if @user.name %></p>
 <p>Email: <%= @user.email if @user.email %></p>
 <% if @user != current_user %>
-	<p> <%=button_to "Add Friend", friend_path(id: @user.id), :method => :patch %>
+	<p> <%=button_to "Add Friend", friend_path(:id => @user.id), :method => :post %>
 <% end %>
 <h4>Tasks</h4>
     <ul>
