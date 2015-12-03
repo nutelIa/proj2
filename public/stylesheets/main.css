@@ -318,12 +318,16 @@ li{
 
 .userbox{
 	padding: 10px 40px;
-	width: 500px;
+	width: 100%;
 	height: auto;
-	margin: 20px auto 20px auto;
-	border-radius: 50px;
-	background-color: #94dceb;
+	margin: auto;
+	background-color: #53c7df;
+	text-align: left;
+	box-sizing: border-box;
 }
 
+table.table1{
+	text-align: left;
+}
 
 

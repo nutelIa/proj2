@@ -30,13 +30,12 @@
 	<div class="main">
 
 <div class="userbox">
-<div class="pagetitle">User</div>
 <% if user_signed_in? %>
-	<p>Name: <%= @user.name if @user.name %></p>
-	<p>Email: <%= @user.email if @user.email %></p>
+	<h1><%= @user.name if @user.name %></h1>
+	<h3><%= @user.email if @user.email %></h3>
 	<% if user_signed_in? %>
 		<% if @user != current_user && @not_following %>
-			<p> <%=button_to "Follow", friend_path(:id => @user.id), :method => :post %>
+			<p> <%=button_to "Follow", friend_path(:id => @user.id), :class => 'smallbutton', :method => :post %>
 		<% end %>
 	<% end %>
 </div>
