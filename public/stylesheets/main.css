@@ -16,7 +16,7 @@ body{
 	justify-content: space-around;
 	
 	background-color: #8AE6DB;
-	width: 1200px;
+	width: 100%;
 	margin: auto;
 	text-align: center;
 }
@@ -27,7 +27,7 @@ body{
 	flex: 1 100%;
 	
 	text-align: center; 
-	color: #ffffff; 
+	color: #ffffff;
 	background-repeat: no-repeat;
 	background-position: 52% top;
 	z-index: 1000;
@@ -45,7 +45,7 @@ body{
 	-moz-flex: 3 1 70%;
 	-webkit-flex: 3 1 70%;
 	flex: 3 1 70%;
-	
+
 	background-color: #eee;
 }
 
@@ -70,7 +70,7 @@ body{
 	box-sizing: border-box;
 	-moz-flex: 3 1 20%;
 	-webkit-flex: 3 1 20%;
-	flex: 3 1 20%;
+	flex: 3 1 30%;
 	
 	background-color: #94dceb;
 	padding: 10px 10px;
@@ -99,7 +99,7 @@ body{
 	overflow: hidden;
 }
 
-.button, .selected{
+.button, .selected, .rightbutton{
 	display: inline-block;
 	margin: 0px 1px;
 	padding: 10px;
@@ -114,12 +114,17 @@ body{
   	transition: background .5s ease;
 }
 
-.button:hover, .selected:hover{
+.button:hover, .selected:hover, .rightbutton:hover{
 	background: rgba(54, 25, 25, .8)
 }
 
-.button.login{
-	float:right;
+a{
+	text-decoration: none;
+	color: white;
+
+}
+.rightbutton{
+	float: right;
 }
 
 ul{
@@ -130,3 +135,90 @@ ul{
 li{
 	padding: 10px;
 }
+
+.signinmsg{
+	width: 55px;
+	font-style: bold;
+	color: #21B3D1;
+	font-size: 20px;
+	margin: auto; 
+	padding: 20px;
+}
+
+.pagetitle{
+	color: white;
+	font-size: 30px;
+	font-weight: 900;
+	padding: 20px;
+}
+
+.clicky{
+	background-color: #53c7df;
+	color: white;
+	padding: 15px 0px;
+	border-radius: 5px;
+	font-weight: 700;
+	font-size: 20px;
+	width: 275px;
+	text-align: center;
+	margin: 10px 0px 10px 0px;
+}
+
+.clicky:hover{
+	cursor: pointer;
+}
+
+.clickable{
+	color: #53c7df;
+	font-size: 20px;
+}
+
+.errormsg{
+	font-size: 15px;
+	line-height: 1px;
+	font-weight: 500;
+	background-color: #53c7df;
+	padding: 10px;
+	width: auto;
+	margin: 0px auto 15px auto;
+	word-wrap: normal;
+}
+
+.tasklist{
+	text-align: center;
+}
+
+.signinbubble{
+	background-color: #df6b53;
+	padding: 40px;
+	width: 300px;
+	height: auto;
+	margin: 20px auto 20px auto;
+	border-radius: 50px;
+}
+
+.bigbutton{
+	font-size: 40px;
+	font-weight: 900;
+	text-align: center;
+	padding: 20px;
+}
+
+.field{
+	width: 250px;
+	font-size: 20px;
+	padding: 10px;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+

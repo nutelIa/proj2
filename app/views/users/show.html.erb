@@ -15,8 +15,8 @@
 <p>Name: <%= @user.name if @user.name %></p>
 <p>Email: <%= @user.email if @user.email %></p>
 <% if user_signed_in? %>
-	<% if @user != current_user %>
-		<p> <%=button_to "Add Friend", friend_path(:id => @user.id), :method => :post %>
+	<% if @user != current_user%>
+		<p> <%=button_to "Follow", friend_path(:id => @user.id), :method => :post %>
 	<% end %>
 <% end %>
 <h4>Tasks</h4>
@@ -68,3 +68,5 @@
 <% @user.friends.each do |friend| %>
 <li> <%= link_to friend.name, friend %></li>
 <% end %>
+
+
