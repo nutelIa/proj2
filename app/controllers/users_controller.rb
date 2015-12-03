@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
 	def show
-		@user = User.find(params[:id])
+		@user = User.friendly.find(params[:id])
 		begin
-			current_user.friends.find(params[:id])
+			current_user.friends.friendly.find(params[:id])
 			@not_following = false
 		rescue Exception
 			@not_following = true
