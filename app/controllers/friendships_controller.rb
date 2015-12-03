@@ -5,10 +5,10 @@ class FriendshipsController < ApplicationController
       @f.user_b = User.find(params[:id])
       if @f.save
         flash[:notice] = "You're now friends."
-        redirect_to current_user
+        redirect_to (:back)
       else
         flash[:error] = "Error. Refresh and try again."
-        redirect_to current_user
+        redirect_to (:back)
       end
     end
 end
