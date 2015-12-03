@@ -27,70 +27,74 @@
 	<div class="main">
 
 <h3>User</h3>
-<p>Name: <%= @user.name if @user.name %></p>
-<p>Email: <%= @user.email if @user.email %></p>
 <% if user_signed_in? %>
-	<% if @user != current_user && @not_following %>
-		<p> <%=button_to "Follow", friend_path(:id => @user.id), :method => :post %>
+	<p>Name: <%= @user.name if @user.name %></p>
+	<p>Email: <%= @user.email if @user.email %></p>
+	<% if user_signed_in? %>
+		<% if @user != current_user && @not_following %>
+			<p> <%=button_to "Follow", friend_path(:id => @user.id), :method => :post %>
+		<% end %>
 	<% end %>
-<% end %>
-<h4>Tasks</h4>
-    <ul>
-        <% if @user.tasks.empty? %>
-            <p>No Tasks!</p>
-        <% else %>
-            <% @user.tasks.each do |task| %>
-            	<% if not task.finished %>
-	            	<% if @user == current_user %> 
-	            		<div>
-	            			<div style="display:inline-block;margin-right:10px"> 
-								<%= simple_form_for task do |f| %>
-	                               <%= f.submit '✓', :class => 'check'%>
-	                               <%= task.todo %>
-	                            <% end %>
-	                        </div>
-							<div style="display:inline-block;"> 
-		        				<%= button_to "Give Up", delete_path(id: task), :method => :patch %> 
-		        			</div>
-		        		</div>
-					<% else %>
-						<li> <%= task.todo %>
+	<h4>Tasks</h4>
+	    <ul>
+	        <% if @user.tasks.empty? %>
+	            <p>No Tasks!</p>
+	        <% else %>
+	            <% @user.tasks.each do |task| %>
+	            	<% if not task.finished %>
+		            	<% if @user == current_user %> 
+		            		<div>
+		            			<div style="display:inline-block;margin-right:10px"> 
+									<%= simple_form_for task do |f| %>
+		                               <%= f.submit '✓', :class => 'check'%>
+		                               <%= task.todo %>
+		                            <% end %>
+		                        </div>
+								<div style="display:inline-block;"> 
+			        				<%= button_to "Give Up", delete_path(id: task), :method => :patch %> 
+			        			</div>
+			        		</div>
+						<% else %>
+							<li> <%= task.todo %>
+						<% end %>
 					<% end %>
-				<% end %>
-            <% end %>
-        <% end %>
-    </ul>
-
-<% if current_user == @user %>
-	 <%= link_to "New Task", tasks_new_path %>
-<% end %>
-
-<h4>Finished Tasks</h4>
-    <ul>
-        <% if @user.tasks.empty? %>
-            <p>No Tasks!</p>
-        <% else %>
-	        <% @user.tasks.each do |task| %>
-	        <% if task.finished %>
-	        	<% if @user == current_user %>
-	        		<li> <%= task.todo %>
-	        			<div style="display:inline-block;"> 
-	        				<%= button_to "Delete", delete_path(id: task), :method => :patch %> 
-	        			</div>
-	        		</li>
-	        	<% else %>
-	        		<li> <%= task.todo %> </li>
-	        		<% end %>
-	        	<% end %>
+	            <% end %>
 	        <% end %>
-        <% end %>
-    </ul>
+	    </ul>
 
-<h4>Following</h4>
-<% @user.friends.each do |friend| %>
-<li> <%= link_to friend.name, friend %><div style="display:inline-block;"> <%= button_to "Unfollow", destroy_path(id: friend), :method => :patch %> 
-	        			</div></li>
-<% end %>
+	<% if current_user == @user %>
+		 <%= link_to "New Task", tasks_new_path %>
+	<% end %>
+
+	<h4>Finished Tasks</h4>
+	    <ul>
+	        <% if @user.tasks.empty? %>
+	            <p>No Tasks!</p>
+	        <% else %>
+		        <% @user.tasks.each do |task| %>
+		        <% if task.finished %>
+		        	<% if @user == current_user %>
+		        		<li> <%= task.todo %>
+		        			<div style="display:inline-block;"> 
+		        				<%= button_to "Delete", delete_path(id: task), :method => :patch %> 
+		        			</div>
+		        		</li>
+		        	<% else %>
+		        		<li> <%= task.todo %> </li>
+		        		<% end %>
+		        	<% end %>
+		        <% end %>
+	        <% end %>
+	    </ul>
+
+	<h4>Following</h4>
+	<% @user.friends.each do |friend| %>
+	<li> <%= link_to friend.name, friend %><div style="display:inline-block;"> <%= button_to "Unfollow", destroy_path(id: friend), :method => :patch %> 
+		        			</div></li>
+	<% end %>
+	<% else %> 
+		<p> You must be logged in to view user </p>
+	<% end %>
 </div>
 	<footer class="footer">
 		Copyrighted by us in 2015

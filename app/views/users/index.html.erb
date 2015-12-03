@@ -32,12 +32,16 @@
     <div class="column">
       <table class="table">
         <tbody>
-          <% @users.each do |user| %>
-            <tr>
-              <td><%= link_to user.name, user %></td>
-			  <td><%= link_to user.email, user %></td>
-            </tr>
-          <% end %>
+          <% if user_signed_in? %>
+            <% @users.each do |user| %>
+              <tr>
+                 <td><%= link_to user.name, user %></td>
+  			         <td><%= link_to user.email, user %></td>
+              </tr>
+            <% end %>
+          <% else %>
+            <p> You must be logged in to view users </p>
+           <% end %> 
         </tbody>
       </table>
     </div>
