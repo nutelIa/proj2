@@ -316,6 +316,10 @@ li{
 	margin: 10px auto 10px auto;
 }
 
+.smallbutton:hover, .check:hover{
+	cursor: pointer;
+}
+
 .userbox{
 	padding: 10px 40px;
 	width: 100%;

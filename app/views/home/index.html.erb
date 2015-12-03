@@ -18,9 +18,10 @@
 		<div class="navbox">
 			<div class="button"> <%= link_to 'Home', root_path %></div>
 			<div class="button"><%= link_to 'My Profile', current_user %></div>
-			<div class="button"> <%= link_to 'Edit Your User', edit_user_registration_path %></div>
 			<div class="button"><%= link_to 'All Users:', users_path %> <%= User.count %> registered </div>
 			<div class="rightbutton"><%= link_to 'Log Out', destroy_user_session_path, :method=>'delete' %></div>
+			<div class="rightbutton"><%= link_to 'Welcome,', edit_user_registration_path %> <%= current_user.name %> </div>
+			
 		</div>
 	<% end %> 
 
