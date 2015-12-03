@@ -41,11 +41,18 @@
         <% else %>
             <% @user.tasks.each do |task| %>
             	<% if not task.finished %>
-	            	<% if @user == current_user %>
-			          	<%= simple_form_for task do |f| %>
-							<li> <%= task.todo %>
-							<%=f.submit 'Mark as Completed' %> </li>
-							<% end %>
+	            	<% if @user == current_user %> 
+	            		<div>
+	            			<div style="display:inline-block;margin-right:10px"> 
+								<%= simple_form_for task do |f| %>
+	                               <%= f.submit '✓', :class => 'check'%>
+	                               <%= task.todo %>
+	                            <% end %>
+	                        </div>
+							<div style="display:inline-block;"> 
+		        				<%= button_to "Give Up", delete_path(id: task), :method => :patch %> 
+		        			</div>
+		        		</div>
 					<% else %>
 						<li> <%= task.todo %>
 					<% end %>

@@ -19,7 +19,7 @@ class TasksController < ApplicationController
 		@task.update_column(:finished, true)
 		redirect_to home_photo_path
 	end
-
+	
 	def delete
 		@task = Task.find(params[:id])
 		@task.destroy
