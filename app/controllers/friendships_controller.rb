@@ -13,8 +13,13 @@ class FriendshipsController < ApplicationController
     end
 
   def destroy
-    @friendship = Friendship.find(params[:id])
-    @friendship.delete
-    redirect_to current_user
+    Friendship.all.each do |f|
+      if f.user_a == current_user
+        if f.user_b == User.find(params[:id])
+          f.delete
+          redirect_to current_user
+        end
+      end
+    end
   end
 end
