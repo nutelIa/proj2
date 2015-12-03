@@ -48,25 +48,33 @@
 	        <% if @user.tasks.empty? %>
 	            <p>No Tasks!</p>
 	        <% else %>
+	        <table>
 	            <% @user.tasks.each do |task| %>
 	            	<% if task.priority and not task.finished%>
 		            	<% if @user == current_user %> 
 		            		<div>
+		            			<tr>
+		            				<td>
 		            			<div style="display:inline-block;margin-right:10px"> 
 									<%= simple_form_for task do |f| %>
 		                               <%= f.submit '✓', :class => 'check'%>
 		                               <%= task.todo %>
 		                            <% end %>
 		                        </div>
+		                    </td>
+		                    <td>
 								<div style="display:inline-block;"> 
 			        				<%= button_to "Give Up", delete_path(id: task), :class => 'smallbutton', :method => :patch %> 
 			        			</div>
+			        		</td>
+			        		</tr>
 			        		</div>
 						<% else %>
 							<li> <%= task.todo %>
 						<% end %>
 					<% end %>
 	            <% end %>
+	            </table>
 	        <% end %>
 	    </ul>
 	    <h4> Other Tasks</h4>
@@ -74,28 +82,38 @@
 	        <% if @user.tasks.empty? %>
 	            <p>No Tasks!</p>
 	        <% else %>
+	        <table>
 	            <% @user.tasks.each do |task| %>
 	            	<% if not task.finished and not task.priority %>
 		            	<% if @user == current_user %> 
 		            		<div>
+		            			
+		            				<tr>
+		            					<td>
 		            			<div style="display:inline-block;margin-right:10px"> 
 									<%= simple_form_for task do |f| %>
 		                               <%= f.submit '✓', :class => 'check'%>
 		                               <%= task.todo %>
 		                            <% end %>
 		                        </div>
+		                    </td>
+		                    <td>
 								<div style="display:inline-block;"> 
 			        				<%= button_to "Give Up", delete_path(id: task), :class => 'smallbutton', :method => :patch %>
 			        			</div>
  								<div style="display:inline-block;"> 
                                 	<%= button_to "✮", prioritize_path(id: task), :class => 'smallbutton', :method => :patch %> 
                             	</div>
+                            </td>
+                            </tr>
+                        
 			        		</div>
 						<% else %>
 							<li> <%= task.todo %>
 						<% end %>
 					<% end %>
 	            <% end %>
+	            </table>
 	        <% end %>
 	    </ul>
 
@@ -111,19 +129,29 @@
 	        <% if @user.tasks.empty? %>
 	            <p>No Tasks!</p>
 	        <% else %>
+	        <table>
 		        <% @user.tasks.each do |task| %>
+
 		        <% if task.finished %>
 		        	<% if @user == current_user %>
-		        		<li> <%= task.todo %>
+		        		
+		        		<tr>
+		        			<td>
+		        		 <%= task.todo %>
+		        		</td>
+		        		<td>
 		        			<div style="display:inline-block;"> 
 		        				<%= button_to "Delete", delete_path(id: task), :class => 'smallbutton', :method => :patch %> 
 		        			</div>
-		        		</li>
+		        		</td>
+		        		</tr>
+		        		
 		        	<% else %>
 		        		<li> <%= task.todo %> </li>
 		        		<% end %>
 		        	<% end %>
 		        <% end %>
+		    </table>
 	        <% end %>
 	    </ul>
 	</div>
