@@ -1,13 +1,12 @@
 class UsersController < ApplicationController
 	def show
 		@user = User.find(params[:id])
-		# for friend in current_user.friends
-		# 	if friend = @user
-		# 		@not_following = true
-		# 		return @not_following
-		# if @user in current_user.friends
-		# 	@not_following = true
-		# @not_following = false
+		begin
+			current_user.friends.find(params[:id])
+			@not_following = false
+		rescue Exception
+			@not_following = true
+		end
 	end
 
 	def index
