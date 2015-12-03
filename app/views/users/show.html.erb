@@ -66,7 +66,7 @@
 
 <h4>Following</h4>
 <% @user.friends.each do |friend| %>
-<li> <%= link_to friend.name, friend %><div style="display:inline-block;"> <%= button_to "Stop Following", destroy_path(id: friend), :method => :patch %> 
+<li> <%= link_to friend.name, friend %><div style="display:inline-block;"> <%= button_to "Unfollow", destroy_path(id: friend), :method => :patch %> 
 	        			</div></li>
 <% end %>
 
