@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root to: 'home#index'
-  post 'friend', to: 'friendships', as: :friend
+  patch 'friend', to: 'friendships', as: :friend
   devise_for :users, :controllers => { :registrations => "users/registrations" }
   resources :users
   patch 'delete', to: 'tasks', as: :delete
