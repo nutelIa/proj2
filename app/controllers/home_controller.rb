@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
 
 	def photo
-		n = rand(1..13)
+		n = rand(1..25)
 		if n == 1
 			@photo = "http://www.yesvegetarian.com/wp-content/uploads/2014/11/Funny-cute-dog.jpg"
 		elsif n == 2
@@ -29,7 +29,29 @@ class HomeController < ApplicationController
 		elsif n == 13
 			@photo = "http://glommable.com/wp-content/uploads/2014/04/glasses-corgi-600-x-600.jpg"
 		elsif n == 14
-			@photo = "http://stylonica.com/wp-content/uploads/2014/03/Cute-Cats-cats-33440930-1280-800.jpg"
+			@photo = "http://www.dailycuteness.com/wp-content/uploads/2012/03/cute-kitty-frog2.jpg"
+		elsif n == 15
+			@photo = "http://i.myniceprofile.com/743/74352.gif"
+		elsif n == 16
+			@photo = "http://www.picgifs.com/graphics/c/cute/graphics-cute-920618.jpg"
+		elsif n == 17
+			@photo = "http://justsomething.co/wp-content/uploads/2013/11/cutest-baby-animals-21.jpg"
+		elsif n == 18
+			@photo = "http://www-static.weddingbee.com/pics/53947/baby_animals.jpg"
+		elsif n == 19
+			@photo = "https://s-media-cache-ak0.pinimg.com/236x/82/9e/d5/829ed585a8f154fdc0329315b7951fbc.jpg"
+		elsif n == 20
+			@photo = "https://s-media-cache-ak0.pinimg.com/736x/b0/49/e1/b049e113a403fe5001b94bb22155be58.jpg"
+		elsif n == 21
+			@photo = "https://lh3.googleusercontent.com/4N-epQTw6HdJpUtr4Cb4T3x6HLzvxHNO1uLqdSoiR6_ybjcWEDOei0cFGvrXe4i4aA63A4LDy8mwc9lWC-_cOuztBBJ-P705W2KQxXvSACLpMrD-UDPepGMDbg"
+		elsif n == 22
+			@photo = "http://maxcdn.thedesigninspiration.com/wp-content/uploads/2011/10/Cute-Animal-001.jpg"
+		elsif n == 23
+			@photo = "http://g8minds.net/wp-content/uploads/2015/10/cutest-baby-animals-7__605.jpg"
+		elsif n == 24
+			@photo = "http://ak-hdl.buzzfed.com/static/2014-02/enhanced/webdr08/6/15/enhanced-8564-1391716907-11.jpg"
+		elsif n == 25
+			@photo = "http://www.theonlinecentral.com/wp-content/uploads/2013/11/cute-cowboy-puppy.jpg"
 		end
 	end
 end
