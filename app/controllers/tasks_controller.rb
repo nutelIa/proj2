@@ -8,7 +8,7 @@ class TasksController < ApplicationController
 		if @task.save
 			@task.update_column(:user_id, current_user)
 			@task.update_column(:finished, false)
-			@task.update_column(:priority. false)
+			@task.update_column(:priority, false)
 			redirect_to current_user
 		else
 			render 'new'
